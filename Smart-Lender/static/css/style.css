@@ -1,0 +1,5 @@
+:root{--primary:#0d6efd;--accent:#2ecc71}
+body{background:#f6f9fc;color:#172b4d}
+.card{border-radius:12px}
+form.bg-white{backdrop-filter: blur(6px);background:rgba(255,255,255,0.85)}
+.navbar-brand{font-weight:700}

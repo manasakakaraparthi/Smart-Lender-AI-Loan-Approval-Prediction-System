@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row align-items-center">
+  <div class="col-md-6">
+    <h1 class="display-5">AI Powered Smart Loan Approval System</h1>
+    <p class="lead">Predict the creditworthiness of loan applicants using Machine Learning.</p>
+    <a href="/predict" class="btn btn-success me-2">Predict Loan</a>
+    <a href="#features" class="btn btn-outline-secondary">Learn More</a>
+  </div>
+  <div class="col-md-6 text-center">
+    <img src="/static/images/hero.svg" alt="hero" class="img-fluid" style="max-height:300px;">
+  </div>
+</div>
+
+<section id="features" class="mt-5">
+  <div class="row g-3">
+    <div class="col-md-3">
+      <div class="card p-3 shadow-sm">
+        <h5>AI Prediction</h5>
+        <p class="small">Smart model-driven decisions.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 shadow-sm">
+        <h5>Fast Decision</h5>
+        <p class="small">Quick approvals and feedback.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 shadow-sm">
+        <h5>High Accuracy</h5>
+        <p class="small">Validated ML models.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card p-3 shadow-sm">
+        <h5>Secure Platform</h5>
+        <p class="small">Data privacy and controls.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mt-5">
+  <div class="row text-center">
+    <div class="col-md-3">
+      <h2>94.7%</h2>
+      <p>Training Accuracy</p>
+    </div>
+    <div class="col-md-3">
+      <h2>81.1%</h2>
+      <p>Testing Accuracy</p>
+    </div>
+    <div class="col-md-3">
+      <h2>4</h2>
+      <p>Machine Learning Models</p>
+    </div>
+    <div class="col-md-3">
+      <h2>100%</h2>
+      <p>Responsive Design</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center p-5">
+  {% if result.predicted == 'Approved' %}
+    <div class="alert alert-success display-6">Loan Approved!</div>
+  {% else %}
+    <div class="alert alert-danger display-6">Loan Rejected</div>
+  {% endif %}
+  <p>Probability: <strong>{{ (result.probability * 100) if result.probability <=1 else result.probability }}{% if result.probability <=1 %}%{% endif %}</strong></p>
+  <p>Risk Level: <strong>{{ result.risk }}</strong></p>
+  <p>Confidence: <strong>{{ result.confidence }}</strong></p>
+  <p>Recommendation: {{ result.recommendation }}</p>
+  <a href="/predict" class="btn btn-primary">Predict Another Loan</a>
+</div>
+{% endblock %}

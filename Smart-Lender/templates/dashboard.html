@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<div class="row g-3">
+  <div class="col-md-3"><div class="card p-3">Total Predictions<br><strong>{{ df.shape[0] if df is not none else 0 }}</strong></div></div>
+  <div class="col-md-3"><div class="card p-3">Approved Loans<br><strong>{{ df[df.predicted=='Approved'].shape[0] if df is not none and 'predicted' in df.columns else 0 }}</strong></div></div>
+  <div class="col-md-3"><div class="card p-3">Rejected Loans<br><strong>{{ df[df.predicted!='Approved'].shape[0] if df is not none and 'predicted' in df.columns else 0 }}</strong></div></div>
+  <div class="col-md-3"><div class="card p-3">Approval Rate<br><strong>{% if df is not none and 'predicted' in df.columns and df.shape[0]>0 %}{{ (df[df.predicted=='Approved'].shape[0]/df.shape[0]*100)|round(1) }}%{% else %}0%{% endif %}</strong></div></div>
+</div>
+
+<div class="mt-4">
+  <a href="/download" class="btn btn-outline-primary">Download CSV</a>
+</div>
+
+<h4 class="mt-4">Recent Predictions</h4>
+{% if df is not none %}
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          {% for c in df.columns %}<th>{{ c }}</th>{% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for _, row in df.tail(10).iterrows() %}
+        <tr>
+          {% for c in df.columns %}<td>{{ row[c] }}</td>{% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p>No predictions yet.</p>
+{% endif %}
+
+{% endblock %}
